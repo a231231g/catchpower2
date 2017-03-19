@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>EZoApp</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' data: blob: filesystem:">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/2.1.2/normalize.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>
+    $(document).on("mobileinit", function () {
+      $.mobile.autoInitializePage = false;
+      $.mobile.hashListeningEnabled = false;
+    });
+
+    function mobileInitPage() {
+      $.mobile.hashListeningEnabled = true;
+      $.mobile.initializePage();
+    }
+  </script>
+  <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <!-- Uncomment the following to include cordova in your app project -->
+  <!-- <script src="//ezoui.com/platforms/android_or_ios/cordova.js"></script> -->
+  <!-- GK Loader use RequireJS to load module -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.16/require.min.js"></script>
+  <!--Plug in GK-->
+  <script src="//ezoui.com/components/jquery.gk/jquery.gk.min.js"></script>
+  <!-- Load GK components -->
+  <script components="//ezoui.com/components/gk-ext/face-detection.html" callback="mobileInitPage" src="//ezoui.com/components/gk-loader/gk-loader.min.js"></script>
+  <!-- Export JS  -->
+  <script>
+    /* code gen by face-detection */
+    $(document).on("gkComponentsReady", function () {
+      // Unmark the following content to detect image url from gk api.
+      //$("#gk-310eD4c").gk("detect", "url").done(function(data) {
+      //console.log(data);
+      //});
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Page: home  -->
+  <div id="人臉辨識" data-role="page114">
+    <div data-role="header" data-position="fixed">
+      <h3>人臉辨識</h3> 
+      <a class="ui-btn ui-btn-left" a href="#page1">Back</a>
+    </div>
+    <div role="main" class="ui-content">
+      <div id="gk-310eD4c" is="face-detection" src="http://n.sinaimg.cn/transform/20141104/cfkptvx4230424.jpg" alt="sample.png"></div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <h3>Catch-power</h3> 
+    </div>
+  </div>
+</body>
+
+</html>
+
